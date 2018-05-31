@@ -1,5 +1,7 @@
 # New York Times Article Scraper
 
+https://lit-waters-36386.herokuapp.com/
+
 ## Description
 The New York Times Article Scraper is a website that allows users to gather articles from The New York Times website (https://www.nytimes.com/), save them for future enjoyment, and leave comments on individual articles.
 
