@@ -8,13 +8,13 @@ The New York Times Article Scraper is a website that allows users to gather arti
 ## Downloading This Application
 To use this application:
 
-1. Ensure that Node.js, npm, and MongoDB are installed on your machine. For instructions, see the Technologies Used section below.
+1. Ensure that Node.js, npm, and MongoDB are installed on your computer.
 
 2. Next, clone this repo to your local machine:
 ```
 git clone https://github.com/commandergavdog/Mongo-Scraper.git
 ```
-3. Open the repository and install the application's dependencies by executing the following command in the bash terminal.
+3. Open the repository and install the application's dependencies by executing the following command in the terminal.
 ```
 npm i
 ```
