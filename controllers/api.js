@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const db = require("../models");
-const request = require("request"); 
-const cheerio = require("cheerio");
+var express = require("express");
+var router = express.Router();
+var db = require("../models");
+var request = require("request"); 
+var cheerio = require("cheerio");
  
 // A GET route for scraping the NYT website
 router.get("/scrape", (req, res) => {
@@ -10,13 +10,13 @@ router.get("/scrape", (req, res) => {
     request("https://www.nytimes.com/", (error, response, body) => {
         if (!error && response.statusCode === 200) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
-            const $ = cheerio.load(body);
-            let count = 0;
+            var $ = cheerio.load(body);
+            
             // Now, we grab every article:
             $('article').each(function (i, element) {
                 // Save an empty result object
-                let count = i;
-                let result = {};
+                
+                var result = {};
                 // Add the text and href of every link, and summary and byline, saving them to object
                 result.title = $(element)
                     .children('.story-heading')
@@ -42,7 +42,7 @@ router.get("/scrape", (req, res) => {
                     db.Article.create(result)
                         .then(function (dbArticle) {
                             // View the added result in the console
-                            count++;
+                            console.log(dbArticle);
                         })
                         .catch(function (err) {
                             // If an error occurred, send it to the client
@@ -63,8 +63,8 @@ router.get("/", (req, res) => {
     db.Article.find({})
         .then(function (dbArticle) {
             // If we were able to successfully find Articles, send them back to the client
-            const retrievedArticles = dbArticle;
-            let hbsObject;
+            var retrievedArticles = dbArticle;
+            var hbsObject;
             hbsObject = {
                 articles: dbArticle
             };
@@ -80,7 +80,7 @@ router.get("/saved", (req, res) => {
     db.Article.find({isSaved: true})
         .then(function (retrievedArticles) {
             // If we were able to successfully find Articles, send them back to the client
-            let hbsObject;
+            var hbsObject;
             hbsObject = {
                 articles: retrievedArticles
             };
