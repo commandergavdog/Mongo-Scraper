@@ -11,7 +11,7 @@ var cheerio = require("cheerio"); // Scraping tool
 var db = require("./models");
 
 // Port configuration for local/Heroku
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 4000;
 
 // Initialize Express
 var app = express();
